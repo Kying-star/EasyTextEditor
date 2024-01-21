@@ -1,7 +1,9 @@
-use std::io::{self, Read};
+#![warn(clippy::all, clippy::pedantic)]
+mod editor;
+mod terminal;
+use editor::Editor;
+pub use terminal::Terminal;
+
 fn main() {
-    for b in io::stdin().bytes() {
-        let c = b.unwarp();
-        print!("{}", c)
-    }
+    Editor::default().run();
 }
